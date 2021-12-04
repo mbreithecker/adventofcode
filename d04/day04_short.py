@@ -7,9 +7,9 @@ for board in inputArr[1:]:
     for k in range(5):
         board_arr[k] = " " + board.split("\n")[k]
         for i in range(5):
-            board_arr[k+i] += " " + board.split("\n")[k].strip().split(" ")[i]
+            board_arr[5+i] += " " + board.split("\n")[k].strip().split(" ")[i]
 
-    fullBoards.append(" \n".join(board_arr))
+    fullBoards.append(" \n".join(board_arr) + " \n")
 
 winningScore = 0
 losingScore = 0
@@ -19,7 +19,7 @@ for s in inputArr[0].split(","):
         if " # # # # # " in fullBoards[i]:
             remainingSum = sum([int(x) if x.strip() != "#" and x.strip() != '' else 0 for line in fullBoards[i].split("\n") for x in line.strip().split(" ")])
             fullBoards[i] = ""
-            if winningScore != 0:
+            if winningScore == 0:
                 winningScore = int(remainingSum / 2 * int(s))
 
             losingScore = int(remainingSum / 2 * int(s))
