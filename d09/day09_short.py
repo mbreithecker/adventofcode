@@ -17,7 +17,7 @@ for x in range(1, len(arr) - 1):
 
 print("Part 1: ", low_counter)
 
-
+# part two
 def mark_neighbors(arr, x, y, marker):
     if arr[x][y] < 9:
         arr[x][y] = marker
